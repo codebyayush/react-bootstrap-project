@@ -18,7 +18,7 @@ const NavigationBar = (props) => {
         <Navbar.Toggle aria-controls="navbarNav" />
         <Navbar.Collapse id="navbarNav">
           <Nav className="fs-5 ">
-            <Nav.Link to="#">Home</Nav.Link>
+            <NavLink to="/Home" className="text-white mt-2 ms-1 me-3">Home</NavLink>
             <NavLink to="/Store" className="text-white mt-2 ms-1 me-3">
               Store
             </NavLink>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Router from "./Components/Router/Router";
 import About from "./Components/Navbar/About";
+import Home from "./Components/Navbar/Home";
 
 function App() {
   const router = createBrowserRouter([
@@ -13,6 +14,10 @@ function App() {
       path: "/About",
       element: <About />,
     },
+    {
+      path: "/Home",
+      element: <Home />
+    }
   ]);
 
   return <RouterProvider router={router} />;

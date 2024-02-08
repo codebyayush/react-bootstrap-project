@@ -16,11 +16,13 @@ const About = (props) => {
           <Navbar.Toggle aria-controls="navbarNav" />
           <Navbar.Collapse id="navbarNav">
             <Nav className="fs-5 ">
-              <Nav.Link to="#">Home</Nav.Link>
-              <NavLink to="/Store" className=" mt-2 ms-1 me-3">
+              <NavLink to="/Home" className=" mt-1 ms-1 me-3">
+                Home
+              </NavLink>
+              <NavLink to="/Store" className=" mt-1 ms-1 me-3">
                 Store
               </NavLink>
-              <NavLink to="/About" className=" mt-2 ms-1">
+              <NavLink to="/About" className=" mt-1 ms-1">
                 About
               </NavLink>
             </Nav>
