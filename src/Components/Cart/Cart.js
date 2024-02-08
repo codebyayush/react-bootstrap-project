@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import ItemContext from "../../Store/ItemContext";
 import { Card, Button } from "react-bootstrap";
 import Modal from "../UI/Modal";
 
 const Cart = (props) => {
+  
   const ctx = useContext(ItemContext);
 
   return (
@@ -35,16 +36,16 @@ const Cart = (props) => {
           {ctx.cartArr.map((item) => (
             <>
               <div className="d-flex justify-content-between">
-                <p className=" w-25">
-                  <img src={item.imageUrl} className="w-50 h-50" />
+                <p className="w-25">
+                  <img src={item.imageUrl} className="w-100" />
                   <br />
                   {item.title}
                 </p>
-                <p className="ms-2 mt-1 me-5">₹ {item.price}</p>
-                <p>
-                  x{ctx.quantity}{" "}
+                <p className="mt-1 w-25" style={{marginLeft: '5rem'}}>₹ {item.price}</p>
+                <p style={{marginLeft: '0px'}}>
+                  x{item.quantity}&nbsp;&nbsp; 
                   <Button
-                    className="bg-danger p-1"
+                    className="bg-danger"
                     onClick={() => ctx.removeItemFromCart(item)}
                   >
                     REMOVE

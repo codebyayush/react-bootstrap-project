@@ -31,7 +31,7 @@ const ItemsList = () => {
                 >
                   ADD TO CART
                 </Button>
-              </Card.Body>
+              </Card.Body> 
             </Card>
             {/* Add a line break after every fourth item */}
             {(index + 1) % 4 === 0 && (

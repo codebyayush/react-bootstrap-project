@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import ItemContext from "./ItemContext";
 
 const ContextProvider = (props) => {
+
+
   const [cartItem, setCartItem] = useState([
     {
       id: Math.random(),
@@ -36,7 +38,8 @@ const ContextProvider = (props) => {
       price: 100,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-    },
+        quantity: 1,
+      },
 
     {
       id: 1,
@@ -44,7 +47,8 @@ const ContextProvider = (props) => {
       price: 50,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-    },
+      quantity: 1,
+      },
 
     {
       id: 2,
@@ -52,7 +56,8 @@ const ContextProvider = (props) => {
       price: 70,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-    },
+      quantity: 1,
+      },
 
     {
       id: 3,
@@ -60,21 +65,24 @@ const ContextProvider = (props) => {
       price: 100,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-    },
+        quantity: 1,
+      },
     {
       id: 4,
       title: "Blue Color",
       price: 100,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-    },
+        quantity: 1,
+      },
     {
       id: 5,
       title: "Blue Color",
       price: 100,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-    },
+        quantity: 1,
+      },
 
     {
       id: 6,
@@ -82,14 +90,16 @@ const ContextProvider = (props) => {
       price: 100,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-    },
+        quantity: 1,
+      },
     {
       id: 5,
       title: "Blue Color",
       price: 100,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-    },
+        quantity: 1,
+      },
   ]);
 
   const removeItemHandler = (item) => {
@@ -99,12 +109,28 @@ const ContextProvider = (props) => {
     });
   };
 
-  const addItemHandler = () => {
-    
-  }
+  const addItemHandler = (item) => {
+    const existingItemIndex = cartItem.findIndex(
+      (items) => items.id === item.id
+    );
+
+    if (existingItemIndex !== -1) {
+      setCartItem((prevItems) => {
+        const newList = [...prevItems];
+        let newListAmount = newList[existingItemIndex].quantity;
+        const newAmount = newListAmount + 1;
+        newList[existingItemIndex].quantity = newAmount;
+        return newList;
+      });
+    } else {
+      return setCartItem((prevItems) => {
+        return [...prevItems, item];
+      });
+    }
+  };
 
   const totalPrice = cartItem.reduce((acc, curr) => {
-    acc += curr.price;
+    acc += Number(curr.quantity)*Number(curr.price);
     return acc;
   }, 0);
 
@@ -115,11 +141,9 @@ const ContextProvider = (props) => {
     cartArr: cartItem,
     totalPrice: totalPrice,
     totalItems: totalItems,
-    quantity: 1,
     addItemToCart: addItemHandler,
     removeItemFromCart: removeItemHandler,
   };
-
   return (
     <ItemContext.Provider value={context}>
       {props.children}
