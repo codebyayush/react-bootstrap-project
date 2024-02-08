@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Nav, Navbar, Button, Container } from "react-bootstrap";
 import ItemContext from "../../Store/ItemContext";
+import { NavLink } from "react-router-dom";
 
 const NavigationBar = (props) => {
   const ctx = useContext(ItemContext);
@@ -17,15 +18,13 @@ const NavigationBar = (props) => {
         <Navbar.Toggle aria-controls="navbarNav" />
         <Navbar.Collapse id="navbarNav">
           <Nav className="fs-5 ">
-            <Nav.Link href="#home" className="">
-              Home
-            </Nav.Link>
-            <Nav.Link href="#features" className="">
+            <Nav.Link to="#">Home</Nav.Link>
+            <NavLink to="/Store" className="text-white mt-2 ms-1 me-3">
               Store
-            </Nav.Link>
-            <Nav.Link href="#pricing" className="">
+            </NavLink>
+            <NavLink to="/About" className="text-white mt-2 ms-1">
               About
-            </Nav.Link>
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
         <Button variant="secondary" onClick={() => props.handleToggle(false)}>

@@ -1,29 +1,21 @@
 import React, { useState } from "react";
-import NavigationBar from "./Components/Navbar/Navbar";
-import ItemsList from "./Components/ItemsList/ItemsList";
-import ContextProvider from "./Store/ContextProvider";
-import Cart from "./Components/Cart/Cart";
-import Home from "./Components/Navbar/Home";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Router from "./Components/Router/Router";
 import About from "./Components/Navbar/About";
 
 function App() {
-  const [toggle, setToggle] = useState(false);
+  const router = createBrowserRouter([
+    {
+      path: "/Store",
+      element: <Router />,
+    },
+    {
+      path: "/About",
+      element: <About />,
+    },
+  ]);
 
-  const toggleHandler = (bool) => {
-    if (bool === false) {
-      setToggle(true);
-    } else {
-      setToggle(false);
-    }
-  };
-
-  return (
-    <ContextProvider>
-      <NavigationBar handleToggle={toggleHandler} />
-      <ItemsList />
-      {toggle && <Cart handleToggle={toggleHandler} />}
-    </ContextProvider>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
