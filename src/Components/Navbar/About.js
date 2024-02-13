@@ -7,7 +7,7 @@ const About = (props) => {
     <div>
       <Navbar
         expand="lg"
-        className="navbar-light bg-light bg-body-tertiary fixed-top "
+        className="navbar-light bg-light bg-body-tertiary fixed-top"
       >
         <Container className="d-flex justify-content-between">
           <Navbar.Brand href="#" className="me-5 fw-bolder fs-2">
@@ -22,8 +22,11 @@ const About = (props) => {
               <NavLink to="/Store" className=" mt-1 ms-1 me-3">
                 Store
               </NavLink>
-              <NavLink to="/About" className=" mt-1 ms-1">
+              <NavLink to="/About" className=" mt-1 ms-1 me-3">
                 About
+              </NavLink>
+              <NavLink to="/contactus" className=" mt-1 ms-1">
+                Contact Us
               </NavLink>
             </Nav>
           </Navbar.Collapse>
