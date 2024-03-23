@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import ItemContext from "../../Store/ItemContext";
 import { useContext } from "react";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const ItemsList = () => {
   const ctx = useContext(ItemContext);
@@ -19,7 +20,7 @@ const ItemsList = () => {
         {ctx.itemArr.map((item, index) => (
           <React.Fragment key={index}>
             <Card className="mx-auto" style={{ width: "18rem" }}>
-              <Card.Img variant="top" src={item.imageUrl} />
+              <Link to={`/Store/${item.id}`}><Card.Img variant="top" src={item.imageUrl} /></Link>
               <Card.Body>
                 <Card.Title>{item.title}</Card.Title>
                 <div>Rs {item.price}</div>

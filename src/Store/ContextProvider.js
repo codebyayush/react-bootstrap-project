@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import ItemContext from "./ItemContext";
 
 const ContextProvider = (props) => {
-
-
   const [cartItem, setCartItem] = useState([
     {
       id: Math.random(),
@@ -31,58 +29,63 @@ const ContextProvider = (props) => {
     },
   ]);
 
-  const [itemArr, setItemArr] = useState([
+  const itemArr = [
     {
       id: 0,
       title: "Colors",
       price: 100,
+      desc: `it's a multi-color smoke`,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-        quantity: 1,
-      },
+      imageUrl1: "https://source.unsplash.com/vI5XwPbGvmY",
+      quantity: 1,
+    },
 
     {
       id: 1,
       title: "Black and white Colors",
       price: 50,
+      desc: `It's a black & white color smoke`,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
       quantity: 1,
-      },
+    },
 
     {
       id: 2,
       title: "Yellow and Black Colors",
+      desc: `These are lights inside of a dark room presents black & yellow color`,
       price: 70,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
       quantity: 1,
-      },
+    },
 
     {
       id: 3,
       title: "Blue Color",
+      desc: `This is a Powder Blue Color image`,
       price: 100,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-        quantity: 1,
-      },
+      quantity: 1,
+    },
     {
       id: 4,
       title: "Blue Color",
       price: 100,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-        quantity: 1,
-      },
+      quantity: 1,
+    },
     {
       id: 5,
       title: "Blue Color",
       price: 100,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-        quantity: 1,
-      },
+      quantity: 1,
+    },
 
     {
       id: 6,
@@ -90,17 +93,17 @@ const ContextProvider = (props) => {
       price: 100,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-        quantity: 1,
-      },
+      quantity: 1,
+    },
     {
       id: 5,
       title: "Blue Color",
       price: 100,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-        quantity: 1,
-      },
-  ]);
+      quantity: 1,
+    },
+  ]
 
   const removeItemHandler = (item) => {
     return setCartItem((prevItem) => {
@@ -130,7 +133,7 @@ const ContextProvider = (props) => {
   };
 
   const totalPrice = cartItem.reduce((acc, curr) => {
-    acc += Number(curr.quantity)*Number(curr.price);
+    acc += Number(curr.quantity) * Number(curr.price);
     return acc;
   }, 0);
 
